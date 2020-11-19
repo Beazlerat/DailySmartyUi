@@ -13,9 +13,8 @@ class Post extends Component {
 
     renderTopics() {
         let topics = this.props.associated_topics.map((topic, index) => {
-        return <span className="post-topic" key={index}>{topic}</span>
+            return <span className="post-topic" key={index}>{topic}</span>
         })
-
         return topics;
     }
 
@@ -30,17 +29,17 @@ class Post extends Component {
                 </div>
             )
         })
-        return links
+        return links;
     }
 
     render() {
         if(this.props.type == 'recent') {
-            return(
-                <li className="recent-posts">
-                    <div className="recent-posts-title">
+            return (
+                <li className="recent-post">
+                    <div className="recent-post-title">
                         {this.props.title}
                     </div>
-                    <div className="recent-posts-topics">
+                    <div className="recent-post-topics">
                         {this.renderTopics()}
                     </div>
                 </li>
@@ -53,8 +52,8 @@ class Post extends Component {
                     </div>
                     <div className="result-post-title">
                         <a href={this.props.url_for_post}
-                            onMouseEnter={() => this.setState({ height: 70 })}
-                            onMouseLeave={() => this.setState({ height: 0 })}
+                           onMouseEnter={() => this.setState({ height: 70 })}
+                           onMouseLeave={() => this.setState({ height: 0 })}
                         >
                         {this.props.title}</a>
                     </div>
@@ -62,14 +61,13 @@ class Post extends Component {
                         duration={500}
                         height={this.state.height}
                     >
-                        <div className="result-post-link">
+                        <div className="result-post-links">
                             {this.renderLinks()}
                         </div>
                     </AnimateHeight>
                 </li>
             )
         }
-
 
     }
 }
